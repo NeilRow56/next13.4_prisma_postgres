@@ -6,6 +6,7 @@ import { HiHome } from 'react-icons/hi'
 import { BiSearch } from 'react-icons/bi'
 import Box from './Box'
 import SidebarItem from './SidebarItem'
+import Library from './Library'
 
 //useMemo syntax is similar to the useEffect’s where you can pass a function and an array of dependencies. useMemo watch the elements inside the array, and detect the changes in values, if there are no changes it doesn’t matter if the entire component re-renders, the function result will stay the same and it will not re-run but instead will return the memoized result. This can eventually help to avoid expensive calculations on every render.
 
@@ -43,8 +44,11 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             ))}
           </div>
         </Box>
-        <Box className='h-full overflow-y-auto'>Song Library</Box>
+        <Box className='h-full overflow-y-auto'>
+          <Library />
+        </Box>
       </div>
+      <main className='h-full flex-1 overflow-y-auto py-2'>{children}</main>
     </div>
   )
 }
